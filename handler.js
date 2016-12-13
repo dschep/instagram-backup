@@ -22,7 +22,7 @@ module.exports.instagramToS3 = (event, context, callback) => {
     })
     .then((posts) => Promise.filter(posts, (post) => Boolean(bucketContents.indexOf(`${post.id}.jpg`))))
     .then((posts) => Promise.map(posts, (post) => {
-      const fileName = post.id + '.jpg';
+      const fileName = (new Date(post.time * 1000)).toISOString() + '.jpg';
       return fetch(post.media)
         .then((resp) => resp.buffer())
         .then((buffer) => {
