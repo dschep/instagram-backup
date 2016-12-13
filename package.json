@@ -1,0 +1,20 @@
+{
+  "name": "instagram-backup",
+  "version": "1.0.0",
+  "description": "Backup Instagram to S3",
+  "main": "handler.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dschep/instagram-backup/"
+  },
+  "author": "Daniel Schep <dschep@gmail.com> (https://schep.me)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "aws-sdk": "^2.7.13",
+    "bluebird": "^3.4.6",
+    "instagram-screen-scrape": "^2.0.0",
+    "node-fetch": "^1.6.3",
+    "stream-to-promise": "^2.2.0"
+  }
+}

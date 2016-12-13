@@ -1,0 +1,23 @@
+service: instagram-backup
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: us-east-1
+
+  environment:
+    screenName: _schep
+    s3Bucket:
+      Ref: InstagramBackupBucket
+
+functions:
+  instagram-backup:
+    handler: handler.instagramToS3
+    events:
+      - schedule: rate(1 day)
+
+resources:
+  Resources:
+    InstagramBackupBucket:
+      Type: "AWS::S3::Bucket"
